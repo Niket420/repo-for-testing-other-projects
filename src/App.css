@@ -1,0 +1,245 @@
+/* Global Layout */
+.app {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe5d9, #f3e5ff);
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: saturate(180%) blur(10px);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+}
+.header .logo {
+  font-size: 2rem;
+}
+.header .title h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #d35400; /* terracotta */
+}
+.header .title p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+.header .edit-btn {
+  background: #ff7e5f;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.header .edit-btn:hover {
+  background: #ff5a33;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.menu-section, .order-section {
+  flex: 1 1 350px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.menu-section h2, .order-section h2 {
+  margin-top: 0;
+  color: #c0392b; /* rich orange */
+}
+
+.search {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.menu-card {
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  padding: 0.6rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s;
+}
+.menu-card:hover {
+  transform: translateY(-2px);
+}
+.menu-card .info {
+  margin-bottom: 0.4rem;
+}
+.menu-card .category {
+  font-size: 0.8rem;
+  color: #777;
+}
+.menu-card .price {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.menu-card .actions {
+  display: flex;
+  gap: 0.3rem;
+}
+.menu-card button {
+  flex: 1;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #ff7e5f;
+  color: #fff;
+  font-size: 0.8rem;
+}
+.menu-card button.edit {
+  background: #2980b9;
+}
+.menu-card button.delete {
+  background: #c0392b;
+}
+
+.order-controls input, .order-controls select {
+  padding: 0.4rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.8rem;
+}
+.order-table th, .order-table td {
+  border: 1px solid #ddd;
+  padding: 0.4rem;
+  text-align: center;
+}
+.order-table th { background: rgba(255,255,255,0.7); }
+
+.order-table button {
+  background: #ff7e5f;
+  border: none;
+  color: #fff;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.order-table button.delete {
+  background: #c0392b;
+}
+
+.summary p, .summary h3 {
+  margin: 0.2rem 0;
+}
+.summary h3 { color: #d35400; }
+
+.action-buttons {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.action-buttons button {
+  flex: 1 1 120px;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #27ae60;
+  color: #fff;
+  transition: background 0.3s;
+}
+.action-buttons button:hover {
+  background: #1e8449;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+.modal-form label {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+.modal-form input {
+  width: 100%;
+  padding: 0.4rem;
+  margin-top: 0.2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.modal-actions button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.modal-actions button[type='submit'] {
+  background: #27ae60;
+  color: #fff;
+}
+.modal-actions button[type='button'] {
+  background: #95a5a6;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items flex-start;
+    gap: 0.5rem;
+  }
+  .main {
+    flex-direction: column;
+  }
+}
